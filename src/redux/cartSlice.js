@@ -15,8 +15,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: {}, // id : quantity 
-    totalItems: 0
+    items: {
+      1: 10 // id : quantity 
+    }, 
+    totalItems: 10
   },
 
   // Reducers take in state, and action 

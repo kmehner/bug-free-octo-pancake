@@ -2,7 +2,8 @@ import React from 'react'
 import { Button, Container, ListGroupItem } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addItem, removeItem } from '../redux/cartSlice'
+import { addItem, removeItem, checkout } from '../redux/cartSlice'
+import products from '../data/products'
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart)
@@ -17,7 +18,15 @@ const ShoppingCart = () => {
   }
 
   const handleCheckout = () => {
-    dispatch(handleCheckout())
+    dispatch(checkout())
+  }
+
+  const getProductName = (id) => {
+    const product = products.find((product) => {
+      return Number(id) === product.id
+    })
+
+    return product ? product.name : 'Unknown Product'
   }
 
   return (
@@ -27,7 +36,7 @@ const ShoppingCart = () => {
       {/* Map out our cart items */}
       {Object.entries(cart.items).map(([id, quantity], idx) => (
         <ListGroupItem key={idx}>
-          <span>{id} - Quantity: {quantity}</span>
+          <span>{getProductName(id)} - Quantity: {quantity}</span>
           <div>
             <Button variant="success" onClick={() => handleAddItem(id)}>+</Button>
             <Button variant="danger" onClick={() => handleRemoveItem(id)}>-</Button>
