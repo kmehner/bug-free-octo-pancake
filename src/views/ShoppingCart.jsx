@@ -48,7 +48,7 @@ const ShoppingCart = () => {
       <p>Total Items: {cart.totalItems}</p>
 
       {/* Checkout */}
-      <Button variant='primary' onClick={() => handleCheckout}>Checkout</Button>
+      <Button variant='primary' onClick={handleCheckout}>Checkout</Button>
 
       <Link to={'/'}>
         <Button>Return to home</Button>

@@ -1,7 +1,8 @@
 import React from 'react'
 import ProductCatalog from '../components/ProductCatalog'
 import { useSelector } from 'react-redux'
-import { Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   const cartCount = useSelector((state) => state.cart.totalItems)
@@ -12,6 +13,11 @@ const HomePage = () => {
       <p>Your current cart count is: {cartCount}</p>
 
       <ProductCatalog />
+
+      <Link to={'/cart'}>
+        <Button>Go to cart</Button>
+      </Link>
+
     </Container>
   )
 }
