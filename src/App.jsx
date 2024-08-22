@@ -1,11 +1,14 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import HomePage from './views/HomePage'
+import ShoppingCart from './views/ShoppingCart'
 
 const App = () => {
   return (
-    <div>
-      <HomePage />
-    </div>
+    <Routes>
+      <Route path='/' element={<HomePage/>} />
+      <Route path='/cart' element={<ShoppingCart/>} />
+    </Routes>
   )
 }
 
