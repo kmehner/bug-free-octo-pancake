@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductCatalog from './components/ProductCatalog'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <ProductCatalog /> 
+    </div>
   )
 }
 
