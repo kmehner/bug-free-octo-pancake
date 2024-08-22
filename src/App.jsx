@@ -1,10 +1,10 @@
 import React from 'react'
-import ProductCatalog from './components/ProductCatalog'
+import HomePage from './views/HomePage'
 
 const App = () => {
   return (
     <div>
-      <ProductCatalog /> 
+      <HomePage />
     </div>
   )
 }
