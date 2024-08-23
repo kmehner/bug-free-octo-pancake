@@ -3,10 +3,11 @@ import { Button, Container, ListGroupItem } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addItem, removeItem, checkout } from '../redux/cartSlice'
-import products from '../data/products'
+// import products from '../data/products'
 
 const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart)
+  const products = useSelector((state) => state.products.items)
   const dispatch = useDispatch()
 
   const handleAddItem = (id) => {
@@ -26,7 +27,7 @@ const ShoppingCart = () => {
       return Number(id) === product.id
     })
 
-    return product ? product.name : 'Unknown Product'
+    return product ? product.title : 'Unknown Product'
   }
 
   return (
